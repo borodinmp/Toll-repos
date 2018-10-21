@@ -1,3 +1,53 @@
-project(':common') {
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.1' //version required
+}
+
+subprojects {
     apply plugin: 'java'
+    repositories {
+        mavenCentral()
+        mavenLocal()
+    }
+    dependencies {
+        testCompile group: 'junit', name: 'junit', version: '4.12'
+    }
+}
+
+apply plugin: 'gradle-one-jar'
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.github.rholder:gradle-one-jar:1.0.4'
+    }
+}
+
+project(':common') {
+    dependencies {
+        compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.6'
+    }
+}
+project(':server-core') {
+    dependencies {
+        compile project(':common')
+    }
+}
+
+project(':tracker-core') {
+    apply plugin: 'java-library-distribution'
+    apply plugin: 'gradle-one-jar'
+
+    dependencies {
+        compile project(':common')
+    }
+
+    task fatJar(type: OneJar) {
+        mainClass = 'jdev.tracker.Main'
+    }
+}
+
+project(':server-ui') {
+}
+project(':tracker-ui') {
 }
