@@ -9,6 +9,27 @@ subprojects {
         mavenLocal()
     }
     dependencies {
+        // https://mvnrepository.com/artifact/de.micromata.jak/JavaAPIforKml
+        compile group: 'de.micromata.jak', name: 'JavaAPIforKml', version: '2.2.0'
+
+        // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+        compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.6'
+
+        // https://mvnrepository.com/artifact/org.slf4j/slf4j-api
+        compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+
+        // https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
+        testCompile group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.25'
+
+        // https://mvnrepository.com/artifact/org.springframework/spring-context
+        compile group: 'org.springframework', name: 'spring-context', version: '5.1.1.RELEASE'
+        
+        // https://mvnrepository.com/artifact/org.apache.camel/camel-core
+        compile group: 'org.apache.camel', name: 'camel-core', version: '2.8.3'
+
+        // https://mvnrepository.com/artifact/ch.qos.logback/logback-classic
+        compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.2'
+        
         testCompile group: 'junit', name: 'junit', version: '4.12'
     }
 }
