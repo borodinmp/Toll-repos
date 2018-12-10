@@ -9,28 +9,18 @@ subprojects {
         mavenLocal()
     }
     dependencies {
-        // https://mvnrepository.com/artifact/de.micromata.jak/JavaAPIforKml
         compile group: 'de.micromata.jak', name: 'JavaAPIforKml', version: '2.2.0'
-
-        // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
         compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.6'
-
-        // https://mvnrepository.com/artifact/org.slf4j/slf4j-api
         compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
-
-        // https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
         testCompile group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.25'
-
-        // https://mvnrepository.com/artifact/org.springframework/spring-context
         compile group: 'org.springframework', name: 'spring-context', version: '5.1.1.RELEASE'
-        
-        // https://mvnrepository.com/artifact/org.apache.camel/camel-core
-        compile group: 'org.apache.camel', name: 'camel-core', version: '2.8.3'
-
-        // https://mvnrepository.com/artifact/ch.qos.logback/logback-classic
         compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.2'
-        
         testCompile group: 'junit', name: 'junit', version: '4.12'
+        compile group: 'org.apache.camel', name: 'camel-http', version: '2.22.1'
+        compile group: 'org.apache.camel', name: 'camel-core', version: '2.20.0'
+        compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.0.4.RELEASE'
+        compile group: 'commons-io', name: 'commons-io', version: '2.6'
+        compile group: 'org.apache.camel', name: 'camel-spring-boot', version: '2.22.2'
     }
 }
 
@@ -52,6 +42,22 @@ project(':common') {
 project(':server-core') {
     dependencies {
         compile project(':common')
+    }
+}
+
+project(':server-ui') {
+    apply plugin: 'java'
+
+    dependencies {
+        compile project(':common')
+        compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: '2.0.4.RELEASE'
+        // tag::security[]
+        compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.0.6.RELEASE'
+        // end::security[]
+        testCompile group: 'junit', name: 'junit', version: '4.12'
+        testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.0.6.RELEASE'
+        testCompile group: 'org.springframework.security', name: 'spring-security-test', version: '5.1.1.RELEASE'
+
     }
 }
 

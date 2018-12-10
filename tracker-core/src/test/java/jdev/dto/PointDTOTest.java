@@ -1,12 +1,15 @@
+/*
 package jdev.dto;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+*/
 /**
  * Created by jdev on 06.03.2017.
- */
+ *//*
+
 public class PointDTOTest {
 
     private String expected = "{\"lat\":56.0,\"lon\":74.0,\"autoId\":\"o567gfd\",\"time\":1539956706228}";
@@ -38,4 +41,4 @@ public class PointDTOTest {
         assertEquals(time, dto.getTime());
     }
 
-}
+}*/

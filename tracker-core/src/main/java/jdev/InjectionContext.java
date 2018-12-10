@@ -36,12 +36,4 @@ public class InjectionContext {
         return new PointDTO();
     }
 
-    @Bean
-    CamelContext camelContext() throws Exception  {
-        CamelContext ctx = new DefaultCamelContext();
-        ctx.addRoutes(sendService());
-        ctx.start();
-        return ctx;
-
-    }
 }

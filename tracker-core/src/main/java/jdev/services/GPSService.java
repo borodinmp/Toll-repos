@@ -34,25 +34,5 @@ public class GPSService {
         }
 
 
-
-
-
-
-
-
-
-
-/*
-        System.out.println("Добавляем значение lat = ");
-        saveService.put((coordinate.getLatitude().toString);
-    }
-
-    @Scheduled(fixedDelay = 1000)
-    public void info() throws InterruptedException {
-        System.out.println("Scheduled ->>> take: " + saveService.getQueue());
-    }*/
-
-
-
 }
 
