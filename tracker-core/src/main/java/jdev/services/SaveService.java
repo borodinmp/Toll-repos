@@ -1,5 +1,6 @@
 package jdev.services;
 
+import jdev.dto.Point;
 import org.springframework.stereotype.Service;
 
 import java.util.concurrent.BlockingDeque;
@@ -8,14 +9,18 @@ import java.util.concurrent.LinkedBlockingDeque;
 @Service
 public class SaveService {
 
-    private BlockingDeque<String> queue = new LinkedBlockingDeque<>(100);
+    private BlockingDeque<Point> queue = new LinkedBlockingDeque<>(100);
 
-    public void put(String str) throws InterruptedException {
-        queue.put(str);
+    public void put(Point point) throws InterruptedException {
+        queue.put(point);
     }
 
-    public String getQueue() throws InterruptedException {
+    public Point take() throws InterruptedException {
         return queue.take();
+    }
+
+    BlockingDeque<Point> getQueue() {
+        return queue;
     }
 
 }
