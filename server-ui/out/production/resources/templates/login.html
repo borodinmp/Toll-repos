@@ -7,7 +7,7 @@
             Неверное имя или пароль.
         </div>
         <div align="center" th:if="${param.logout}">
-            Произведен выход.
+            Сеанс завершен, Вы вышли из системы.
         </div>
         <form th:action="@{/login}" method="post">
             <div align="center"><label> Имя : <input type="text" name="username"/> </label></div>

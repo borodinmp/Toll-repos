@@ -3,13 +3,12 @@ package jdev;
 import jdev.services.GPSService;
 import jdev.services.SaveService;
 import jdev.services.SendService;
-import jdev.tracker.PointDTO;
-import org.apache.camel.CamelContext;
-import org.apache.camel.impl.DefaultCamelContext;
+import jdev.services.KmlImport;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.web.client.RestTemplate;
 
 @Configuration
 @EnableScheduling
@@ -32,8 +31,8 @@ public class InjectionContext {
     }
 
     @Bean
-    public PointDTO pointDTO() {
-        return new PointDTO();
+    public KmlImport pointDTO() {
+        return new KmlImport();
     }
 
 }

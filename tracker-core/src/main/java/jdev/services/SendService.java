@@ -15,15 +15,21 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class SendService {
 
+    private RestTemplate restTemplate;
+
+    public SendService() {}
+
+    public SendService(@Autowired RestTemplate restTemplate){this.restTemplate = restTemplate;}
+
     @Autowired
     private SaveService saveService;
 
     private static final Logger log = LoggerFactory.getLogger(SendService.class);
 
-    RestTemplate restTemplate = new RestTemplate();
-
     @Scheduled(fixedDelay = 1000)
-    private void GPSMessaging() throws InterruptedException {
+    public void GPSMessaging() throws InterruptedException {
+
+        RestTemplate restTemplate = new RestTemplate();
 
         Point point;
 
@@ -39,7 +45,7 @@ public class SendService {
 
     }
 
-    private static HttpHeaders getHeaders() {
+    public static HttpHeaders getHeaders() {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         return headers;

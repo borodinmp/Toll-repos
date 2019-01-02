@@ -1,4 +1,4 @@
-package jdev.tracker;
+package jdev.services;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -12,7 +12,13 @@ import java.io.File;
 import java.util.List;
 
 @Service
-public class PointDTO {
+public class KmlImport {
+
+    private List coordinates;
+
+    public void setCoordinates(List coordinates) {
+        this.coordinates = coordinates;
+    }
 
     public List getCoordinates() {
         final Kml kml = Kml.unmarshal(new File("C:\\Users\\Admin\\IdeaProjects\\Toll\\tracker-core\\track.kml"));

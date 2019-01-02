@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
     <head>
         <title> Авторизация </title>
     </head>
@@ -7,7 +8,7 @@
             Неверное имя или пароль.
         </div>
         <div align="center" th:if="${param.logout}">
-            Произведен выход.
+            Сеанс завершен, Вы вышли из системы.
         </div>
         <form th:action="@{/login}" method="post">
             <div align="center"><label> Имя : <input type="text" name="username"/> </label></div>
